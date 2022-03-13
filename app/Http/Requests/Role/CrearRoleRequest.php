@@ -13,7 +13,7 @@ class CrearRoleRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,8 +24,21 @@ class CrearRoleRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombre' => '',
-            'permisos' => ''
+            'nombre' => 'required|unique:App\Models\Role,nombre'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'nombre.required' => 'Se Requiere un nombre para el rol',
+            'nombre.unique' => 'El rol que intenta Crear ya Exite'
+        ];
+    }
+
+    public function attributes(){
+        return [
+            'nombres' => 'Nombres del Rol'
         ];
     }
 }

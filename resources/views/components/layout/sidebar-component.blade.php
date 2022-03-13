@@ -58,7 +58,7 @@
                 </li>
                 <li class="app-sidebar__heading">Configuración</li>
                 <li >
-                    <a href="{{url('/roles')}}" class="lk-getRols lk-AddRol lk-EditRol">
+                    <a href="{{url('/roles')}}" class="lk-roles.listar lk-roles.crear">
                         <i class="metismenu-icon fa-sitemap fa fa-fwr"></i> Roles
                     </a>
                 </li>
