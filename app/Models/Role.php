@@ -2,7 +2,9 @@
 
 namespace App\Models;
 
+use App\Models\Usuario;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Role extends Model
@@ -13,11 +15,12 @@ class Role extends Model
 
     protected $fillable = [
         'nombre',
-        'permisos'
+        'permisos',
+        'estado'
     ];
 
     public function r_usuarios() {
-        return $this->hasMany(Usuarios::class, 'id');
+        return $this->hasMany(Usuario::class, 'id');
     }
 
 }

@@ -26,7 +26,7 @@ class Helper {
                 'icon' => '<i class="fas fa-home"></i>',
                 'title' => 'Modulo de Inicio',
                 'key' => [
-                    'getHome' => 'Puede Ver la Pantalla de Inicio.',
+                    'Ver_Dashboard' => 'Puede Ver la Pantalla de Inicio.',
                 ]
             ],
         ];
