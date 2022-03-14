@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\Role;
+use Illuminate\Http\Request;
 use Illuminate\Foundation\Http\FormRequest;
 
 class RoleRepository extends BaseRepository {
@@ -26,7 +27,7 @@ class RoleRepository extends BaseRepository {
             if($role->save()){
                 $respuesta['status'] = 200;
                 $respuesta['message'] = "Role Guardado Exitosamente";
-                $respuesta['typealert'] = "succses";
+                $respuesta['typealert'] = "success";
                 return $respuesta;
             }else{
                 $respuesta['status'] = 500;
@@ -34,6 +35,42 @@ class RoleRepository extends BaseRepository {
                 $respuesta['typealert'] = "danger";
                 return $respuesta;
             }
+        }
+    }
+
+    public function ActualizarRegistro(Request $request, Role $role) {
+        $datos['permisos'] = json_encode($request->except(['_token','nombre']));
+        if(empty($request->except(['_token','nombre']))){
+            $respuesta['status'] = 404;
+            $respuesta['message'] = "Seleccione al menos un permiso";
+            $respuesta['typealert'] = "warning";
+            return $respuesta;
+        }else{
+            if($role->whereEstado(true)->update(['permisos'=>$datos['permisos']])){
+                $respuesta['status'] = 200;
+                $respuesta['message'] = "Role Actualizado Exitosamente";
+                $respuesta['typealert'] = "success";
+                return $respuesta;
+            }else{
+                $respuesta['status'] = 500;
+                $respuesta['message'] = "Error al Actualizar el Role";
+                $respuesta['typealert'] = "danger";
+                return $respuesta;
+            }
+        }
+    }
+
+    public function EliminarRegistro(Role $role) {
+        if($role->delete()){
+            $respuesta['status'] = 200;
+            $respuesta['message'] = "Role Eliminado Exitosamente";
+            $respuesta['typealert'] = "success";
+            return $respuesta;
+        }else{
+            $respuesta['status'] = 500;
+            $respuesta['message'] = "Error al Eliminar el Role";
+            $respuesta['typealert'] = "danger";
+            return $respuesta;
         }
     }
 

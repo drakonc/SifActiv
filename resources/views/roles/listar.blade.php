@@ -26,6 +26,7 @@
             <div class="main-card mb-3 card">
                 <div class="card-header">Listado de Roles</div>
                 <div class="card-body">
+                    <x-alerta-component />
                     <table id="tb-rols" class="table table-hover table-bordered" style="width:100%">
                         <thead>
                             <tr>
@@ -40,8 +41,8 @@
                                 <td width="10%">{{$role->id}}</td>
                                 <td width="60%">{{$role->nombre}}</td>
                                 <td width="10%">
-                                    <a href="" class="btn btn-primary btn-circle"><i class="fas fa-edit"></i></a>
-                                    <a href="" class="btn btn-danger btn-circle btn-confirm">
+                                    <a href="{{route('roles.editar',['id' => $role->id])}}" class="btn btn-primary btn-circle"><i class="fas fa-edit"></i></a>
+                                    <a href="" class="btn btn-danger btn-circle btn-confirm" data-object="roles/{{ $role->id}}" data-path="GetEliminarRole">
                                         <i class="fas fa-trash"></i>
                                     </a>
                                 </td>
@@ -59,36 +60,6 @@
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
         <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jszip-2.5.0/dt-1.11.5/b-2.2.2/b-colvis-2.2.2/b-html5-2.2.2/b-print-2.2.2/r-2.2.9/datatables.min.js"></script>
-        <script>
-            $(document).ready(function(){
-                const languages = {
-                    'es': 'https://cdn.datatables.net/plug-ins/1.11.5/i18n/es-ES.json'
-                };
-                $('#tb-rols').DataTable({
-                    "processing": true,
-                    "responsive": true,
-                    "language": {
-                        "decimal": "",
-                        "emptyTable": "No hay información",
-                        "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
-                        "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
-                        "infoFiltered": "(Filtrado de _MAX_ total entradas)",
-                        "infoPostFix": "",
-                        "thousands": ",",
-                        "lengthMenu": "Mostrar _MENU_ Entradas",
-                        "loadingRecords": "Cargando...",
-                        "processing": "Procesando...",
-                        "search": "Buscar:",
-                        "zeroRecords": "Sin resultados encontrados",
-                        "paginate": {
-                            "first": "Primero",
-                            "last": "Ultimo",
-                            "next": "Siguiente",
-                            "previous": "Anterior"
-                        }
-    },
-                })
-            })
-        </script>
+        <script src="{{ asset('/js/role.js?v='.time()) }}" defer></script>
     @endpush    
 </x-app-layout>
