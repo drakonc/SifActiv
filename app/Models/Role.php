@@ -23,4 +23,10 @@ class Role extends Model
         return $this->hasMany(Usuario::class, 'id');
     }
 
+    public function getEstatusAttribute(){
+        if($this->estado === 1)
+            return 'Activo';
+        return 'Inactivo';
+    }
+
 }

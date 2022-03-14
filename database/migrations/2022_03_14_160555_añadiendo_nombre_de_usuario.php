@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AgregarLaveForaneaTablaDeUsuariosRoles extends Migration
+class AñadiendoNombreDeUsuario extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class AgregarLaveForaneaTablaDeUsuariosRoles extends Migration
     public function up()
     {
         Schema::table('usuarios', function (Blueprint $table) {
-            $table->foreignId('rol_id')->nullable()->constrained('roles')->cascadeOnUpdate()->nullOnDelete()->after('email');;
+            $table->string('usuario')->unique()->after('email');
         });
     }
 
@@ -26,7 +26,7 @@ class AgregarLaveForaneaTablaDeUsuariosRoles extends Migration
     public function down()
     {
         Schema::table('usuarios', function (Blueprint $table) {
-            $table->dropColumn('rol_id');
+            $table->dropColumn('usuario');
         });
     }
 }
