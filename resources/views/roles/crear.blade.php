@@ -10,7 +10,7 @@
             <div class="page-title-actions">
                 <div class="d-inline-block dropdown">
                     <a href="{{route('roles.listar')}}" type="button"  aria-haspopup="true" aria-expanded="false" class="btn btn-primary">
-                        <i class="fa fa-list-ol fa-w-20"></i> Listado de Roles
+                        <i class="fa fa-list-ol fa-w-20"></i> Crear Roles
                     </a>
                 </div>
             </div>
@@ -52,7 +52,9 @@
                                 </div>
                             @endforeach
                         </div>
-                        {!! Form::submit('Crear',['class' => 'mt-5 btn btn-primary']) !!}
+                        <div class="d-grid gap-2">
+                            {!! Form::submit('Crear',['class' => 'mt-5 btn btn-primary']) !!}
+                        </div>
                     {!! Form::close() !!}
                 </div>
             </div>

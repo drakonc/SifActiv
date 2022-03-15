@@ -52,7 +52,9 @@
                                 </div>
                             @endforeach
                         </div>
-                        {!! Form::submit('Acualizar',['class' => 'mt-5 btn btn-primary']) !!}
+                        <div class="d-grid gap-2">
+                            {!! Form::submit('Acualizar',['class' => 'mt-5 btn btn-primary']) !!}
+                        </div>
                     {!! Form::close() !!}
                 </div>
             </div>

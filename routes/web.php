@@ -26,3 +26,4 @@ Route::get('/roles/{id}/GetEliminarRole',[RoleController::class,'GetEliminarRole
 //Usuarios
 Route::get('/usuarios',[UsuarioController::class,'ObtenerTodoActivo'])->name('usuarios.listar');
 Route::get('/usuarios/GetCearUsuarios',[UsuarioController::class,'GetCearUsuarios'])->name('usuarios.crear');
+Route::post('/usuarios/PostCearUsuarios',[UsuarioController::class,'PostCearUsuarios'])->name('usuarios.store');

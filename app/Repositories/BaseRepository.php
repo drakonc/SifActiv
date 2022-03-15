@@ -20,4 +20,8 @@ class BaseRepository {
         return $this->model->whereId($id)->whereEstado(true)->first();
     }
 
+    public function ObtenerTodoActivoPluck(array $data) {
+        return $this->model->whereEstado(true)->orderBy($data['valor'],'asc')->pluck($data['valor'],$data['clave']);
+    }
+
 }

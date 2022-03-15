@@ -4,7 +4,7 @@ namespace App\Repositories;
 
 use App\Models\Role;
 use Illuminate\Http\Request;
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\Role\CrearRoleRequest;
 
 class RoleRepository extends BaseRepository {
 
@@ -12,7 +12,7 @@ class RoleRepository extends BaseRepository {
         parent::__construct($role);
     }
 
-    public function CrearRegistro(FormRequest $request) {
+    public function CrearRegistro(CrearRoleRequest $request) {
         $datos['nombre'] = $request->nombre;
         $datos['permisos'] = json_encode($request->except(['_token','nombre']));
         $role = new Role();

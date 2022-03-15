@@ -63,7 +63,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{route('usuarios.listar')}}" class="lk-usuarios.listar">
+                    <a href="{{route('usuarios.listar')}}" class="lk-usuarios.listar lk-usuarios.crear">
                         <i class="metismenu-icon fa-user-secret fa fa-fw"></i> Usuarios
                     </a>
                 </li>

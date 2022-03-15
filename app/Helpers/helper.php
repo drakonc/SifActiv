@@ -34,4 +34,8 @@ class Helper {
         return $p;
     }
 
+    public static function Estado(){
+        return ['0' => 'Inactivo','1' => 'Activo'];
+    }
+
 }

@@ -44,11 +44,11 @@
                                 <td>{{$usuario->nombre_completo}}</td>
                                 <td>{{$usuario->usuario}}</td>
                                 <td>{{$usuario->email}}</td>
-                                <td>{{$usuario->r_usuarios}}</td>
-                                <td>{{$usuario->estatus}}</td>
+                                <td>{{$usuario->r_role->nombre}}</td>
+                                <td><span @if($usuario->estado)class="badge bg-success"@else class="badge bg-secondary" @endif>{{$usuario->estatus}}</span></td>
                                 <td width="10%">
                                     <a href="{{route('roles.editar',['id' => $usuario->id])}}" class="btn btn-primary btn-circle"><i class="fas fa-edit"></i></a>
-                                    <a href="" class="btn btn-danger btn-circle btn-confirm" data-object="roles/{{ $role->id}}" data-path="GetEliminarRole">
+                                    <a href="" class="btn btn-danger btn-circle btn-confirm" data-object="roles/{{ $usuario->id}}" data-path="GetEliminarRole">
                                         <i class="fas fa-trash"></i>
                                     </a>
                                 </td>

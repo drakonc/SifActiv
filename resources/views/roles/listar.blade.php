@@ -41,7 +41,7 @@
                             <tr>
                                 <td width="10%">{{$role->id}}</td>
                                 <td width="60%">{{$role->nombre}}</td>
-                                <td width="20%">{{$role->estatus}}</td>
+                                <td width="20%"><span @if($role->estado)class="badge bg-success"@else class="badge bg-secondary" @endif>{{$role->estatus}}</span></td>
                                 <td width="10%">
                                     <a href="{{route('roles.editar',['id' => $role->id])}}" class="btn btn-primary btn-circle"><i class="fas fa-edit"></i></a>
                                     <a href="" class="btn btn-danger btn-circle btn-confirm" data-object="roles/{{ $role->id}}" data-path="GetEliminarRole">
