@@ -9,14 +9,13 @@
             </div>
             <div class="page-title-actions">
                 <div class="d-inline-block dropdown">
-                    <a href="{{route('roles.listar')}}" type="button"  aria-haspopup="true" aria-expanded="false" class="btn btn-primary">
+                    <a href="{{route('rolesListar')}}" type="button"  aria-haspopup="true" aria-expanded="false" class="btn btn-primary">
                         <i class="fa fa-list-ol fa-w-20"></i> Listado de Roles
                     </a>
                 </div>
             </div>
         </div> 
     </div>
-
     <div class="row">
         <div class="col-md-12">
             <div class="main-card mb-3 card">
@@ -43,7 +42,7 @@
                                         <div class="card-body">
                                             @foreach ($value['key'] as $k => $v)
                                             <div class="form-check">
-                                                <input type="checkbox" value="true" name="{{ $k }}" id="{{ $k }}" class="form-check-input" id="{{ $k }}" @if(Helper::Permisos($role->permisos,$k)) checked @endif>
+                                                <input type="checkbox" value="true" name="{{ $k }}" id="{{ $k }}" class="form-check-input" id="{{ $k }}" @if(Helper::Buscar_Valor($role->permisos,$k)) checked @endif>
                                                 <label for="{{ $k }}" class="form-check-label">{{ $v }}</label>
                                             </div>
                                             @endforeach

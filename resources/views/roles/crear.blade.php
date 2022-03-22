@@ -9,7 +9,7 @@
             </div>
             <div class="page-title-actions">
                 <div class="d-inline-block dropdown">
-                    <a href="{{route('roles.listar')}}" type="button"  aria-haspopup="true" aria-expanded="false" class="btn btn-primary">
+                    <a href="{{route('rolesListar')}}" type="button"  aria-haspopup="true" aria-expanded="false" class="btn btn-primary">
                         <i class="fa fa-list-ol fa-w-20"></i> Crear Roles
                     </a>
                 </div>

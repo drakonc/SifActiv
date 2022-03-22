@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\ConnectConrtoller;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,19 +21,21 @@ Route::get('/login',[ConnectConrtoller::class,'GetLogin'])->name('getlogin');
 Route::post('/login',[ConnectConrtoller::class,'PostLogin'])->name('postlogin');
 Route::get('/logout',[ConnectConrtoller::class,'GetLogout'])->name('getlogout');
 
+Route::get('/',[DashboardController::class,'getHome'])->name('VerDashboard');
+
 //Roles
 Route::prefix('roles')->group(function(){
-    Route::get('/',[RoleController::class,'ObtenerTodoActivo'])->name('roles.listar');
-    Route::get('/GetCearRole',[RoleController::class,'GetCearRole'])->name('roles.crear');
-    Route::post('/PostCearRole',[RoleController::class,'PostCearRole'])->name('roles.store');
-    Route::get('/{id}/GetEditRole',[RoleController::class,'GetEditRole'])->name('roles.editar');
-    Route::post('/{id}/PostEditRole',[RoleController::class,'PostEditRole'])->name('roles.update');
-    Route::get('/{id}/GetEliminarRole',[RoleController::class,'GetEliminarRole'])->name('roles.eliminar');
+    Route::get('/',[RoleController::class,'ObtenerTodoActivo'])->name('rolesListar');
+    Route::get('/GetCearRole',[RoleController::class,'GetCearRole'])->name('rolesCrear');
+    Route::post('/PostCearRole',[RoleController::class,'PostCearRole'])->name('rolesCrear');
+    Route::get('/{id}/GetEditRole',[RoleController::class,'GetEditRole'])->name('rolesEditar');
+    Route::post('/{id}/PostEditRole',[RoleController::class,'PostEditRole'])->name('rolesEditar');
+    Route::get('/{id}/GetEliminarRole',[RoleController::class,'GetEliminarRole'])->name('rolesEliminar');
 });
 
 //Usuarios
 Route::prefix('usuarios')->group(function(){
-    Route::get('/',[UsuarioController::class,'ObtenerTodoActivo'])->name('usuarios.listar');
-    Route::get('/GetCearUsuarios',[UsuarioController::class,'GetCearUsuarios'])->name('usuarios.crear');
-    Route::post('/PostCearUsuarios',[UsuarioController::class,'PostCearUsuarios'])->name('usuarios.store');
+    Route::get('/',[UsuarioController::class,'ObtenerTodoActivo'])->name('usuariosListar');
+    Route::get('/GetCearUsuarios',[UsuarioController::class,'GetCearUsuarios'])->name('usuariosCrear');
+    Route::post('/PostCearUsuarios',[UsuarioController::class,'PostCearUsuarios'])->name('usuariosCrear');
 });

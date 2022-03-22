@@ -35,7 +35,7 @@
             <ul class="vertical-nav-menu">
                 <li class="app-sidebar__heading">Dashboards</li>
                 <li>
-                    <a href="{{url('/')}}" class="lk-getHome">
+                    <a href="{{url('/')}}" class="lk-Ver_Dashboard">
                         <i class="metismenu-icon fas fa-tachometer-alt"></i> Inicio
                     </a>
                 </li>
@@ -58,12 +58,12 @@
                 </li>
                 <li class="app-sidebar__heading">Configuración</li>
                 <li >
-                    <a href="{{route('roles.listar')}}" class="lk-roles.listar lk-roles.crear lk-roles.editar lk-roles.eliminar">
+                    <a href="{{route('rolesListar')}}" class="lk-rolesListar lk-rolesCrear lk-rolesEditar lk-rolesEliminar">
                         <i class="metismenu-icon fa-sitemap fa fa-fwr"></i> Roles
                     </a>
                 </li>
                 <li>
-                    <a href="{{route('usuarios.listar')}}" class="lk-usuarios.listar lk-usuarios.crear">
+                    <a href="{{route('usuariosListar')}}" class="lk-usuariosListar lk-usuariosCrear">
                         <i class="metismenu-icon fa-user-secret fa fa-fw"></i> Usuarios
                     </a>
                 </li>

@@ -1,5 +1,6 @@
 <?php
 
+namespace App\Helpers;
 class Helper {
 
     public static function Buscar_Valor($json, $key){
@@ -7,6 +8,7 @@ class Helper {
             return null;
         else:
             $json = $json;
+            //dd($json,$key);
             $json = json_decode($json,true);
             if(array_key_exists($key,$json)):
                 return $json[$key];
@@ -26,9 +28,27 @@ class Helper {
                 'icon' => '<i class="fas fa-home"></i>',
                 'title' => 'Modulo de Inicio',
                 'key' => [
-                    'Ver_Dashboard' => 'Puede Ver la Pantalla de Inicio.',
+                    'VerDashboard' => 'Puede Ver la Pantalla de Inicio',
                 ]
             ],
+            'roles' => [
+                'icon' => '<i class="fas fa-home"></i>',
+                'title' => 'Modulo de Roles',
+                'key' => [
+                    'rolesListar' => 'Puede Listar Los Roles',
+                    'rolesCrear' => 'Puede Crear Nuevos Roles',
+                    'rolesEditar' => 'Puede Editar los Roles',
+                    'rolesEliminar' => 'Puede Eliminar los Roles'
+                ]
+            ],
+            'Usuarios' => [
+                'icon' => '<i class="fas fa-home"></i>',
+                'title' => 'Modulo de Usuarios',
+                'key' => [
+                    'usuariosListar' => 'Puede Listar Los Usuarios del Sistema',
+                    'usuariosCrear' => 'Puede Crear Nuevos Usuarios',
+                ]
+            ]
         ];
     
         return $p;

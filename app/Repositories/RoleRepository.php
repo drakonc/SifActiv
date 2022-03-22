@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\Models\Role;
 use Illuminate\Http\Request;
+use Auth;
 use App\Http\Requests\Role\CrearRoleRequest;
 
 class RoleRepository extends BaseRepository {
@@ -46,7 +47,7 @@ class RoleRepository extends BaseRepository {
             $respuesta['typealert'] = "warning";
             return $respuesta;
         }else{
-            if($role->whereEstado(true)->update(['permisos'=>$datos['permisos']])){
+            if($role->whereEstado(true)->whereId($role->id)->update(['permisos'=>$datos['permisos']])){
                 $respuesta['status'] = 200;
                 $respuesta['message'] = "Role Actualizado Exitosamente";
                 $respuesta['typealert'] = "success";

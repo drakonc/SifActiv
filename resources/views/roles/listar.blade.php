@@ -13,7 +13,7 @@
             </div>
             <div class="page-title-actions">
                 <div class="d-inline-block dropdown">
-                    <a href="{{route('roles.crear')}}" type="button"  aria-haspopup="true" aria-expanded="false" class="btn btn-primary">
+                    <a href="{{url('roles/GetCearRole')}}" type="button"  aria-haspopup="true" aria-expanded="false" class="btn btn-primary">
                         <i class="fa fa-plus fa-w-20"></i> Nuevo Rol
                     </a>
                 </div>
@@ -43,7 +43,7 @@
                                 <td width="50%">{{$role->nombre}}</td>
                                 <td width="20%"><span @if($role->estado)class="badge bg-success"@else class="badge bg-secondary" @endif>{{$role->estatus}}</span></td>
                                 <td width="10%" class="text-center">
-                                    <a href="{{route('roles.editar',['id' => $role->id])}}" class="btn btn-primary btn-circle"><i class="fas fa-edit"></i></a>
+                                    <a href="{{url('/roles/'.$role->id.'/GetEditRole')}}" class="btn btn-primary btn-circle"><i class="fas fa-edit"></i></a>
                                     <a href="" class="btn btn-danger btn-circle btn-confirm" data-object="roles/{{ $role->id}}" data-path="GetEliminarRole">
                                         <i class="fas fa-trash"></i>
                                     </a>

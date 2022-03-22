@@ -236,7 +236,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Debugbar' => Barryvdh\Debugbar\Facades\Debugbar::class,
         'DataTables' => Yajra\DataTables\Facades\DataTables::class,
-
+        'Helper'    => App\Helpers\Helper::class,
     ],
 
 ];

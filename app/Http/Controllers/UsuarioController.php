@@ -16,6 +16,8 @@ class UsuarioController extends Controller
     private $roleRepository;
 
     public function __construct(RoleRepository $roleRepository, UsuarioRepository $usuarioRepository){
+        $this->middleware('auth');
+        $this->middleware('permisos');
         $this->roleRepository = $roleRepository;
         $this->usuarioRepository = $usuarioRepository;
     }

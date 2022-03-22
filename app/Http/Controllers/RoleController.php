@@ -12,6 +12,8 @@ class RoleController extends Controller
     private $roleRepository;
 
     public function __construct(RoleRepository $roleRepository){
+        $this->middleware('auth');
+        //$this->middleware('permisos');
         $this->roleRepository = $roleRepository;
     }
 
@@ -45,8 +47,8 @@ class RoleController extends Controller
         }
     }
 
-    public function PostEditRole(Request $request,Role $role){
-        $respuesta = $this->roleRepository->ActualizarRegistro($request,$role);
+    public function PostEditRole(Request $request,Role $id){
+        $respuesta = $this->roleRepository->ActualizarRegistro($request,$id);
         if ($respuesta['status'] == 404){
             return back()->with('message',$respuesta['message'])->with('typealert',$respuesta['typealert'])->withInput();
         }else if ($respuesta['status'] == 200){
